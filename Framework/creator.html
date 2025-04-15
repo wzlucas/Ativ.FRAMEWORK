@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageMaker</title>
+    <script src="funcoes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .btn-custom {
+            background-color: #006fc9;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 14px;
+            margin-bottom: 10px;
+        }
+
+        .btn-custom2 {
+            background-color: #3a5b68;
+            color: white;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .btn-custom:hover {
+            background-color: #265aa86c;
+        }
+
+        .btn-custom2:hover {
+            background-color: #3b5d795e;
+        }
+
+        .section {
+            padding: 10px;
+            font-size: 14px;
+        }
+        h1, h2, h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        textarea {
+            resize: none;
+            height: 100px;
+            font-size: 13px;
+        }
+        .form-control, .form-select {
+            font-size: 13px;
+            padding: 4px 8px;
+        }
+        label {
+            margin-bottom: 2px;
+        }
+        body {
+            background-color: #e6f0ff;
+        }
+
+        .section {
+            background-color: #347deb56;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 6px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="container-fluid p-2">
+
+    <div class="text-center mb-2">
+        <h1<h1 class="fw-bold" style="font-size: 50px;">Page Maker</h1>
+    </div>
+
+    <div class="row">
+        
+        <div class="col-md-6">
+
+            <div class="section border mb-2 rounded">
+                <h2>Cabeçalho</h2>
+                <label for="nomeHTML" class="form-label">Nome do Arquivo HTML</label>
+                <input type="text" id="nomeHTML" class="form-control mb-2">
+
+                <label for="corFundo" class="form-label">Cor de Fundo</label>
+                <select id="corFundo" name="corFundo" class="form-select">
+                    <option value="#FF0000" style="background-color: #FF0000; color: white;">Vermelho</option>
+                    <option value="#00FF00" style="background-color: #00FF00;">Verde</option>
+                    <option value="#0000FF" style="background-color: #0000FF; color: white;">Azul</option>
+                    <option value="#FFFF00" style="background-color: #FFFF00;">Amarelo</option>
+                    <option value="#FFA500" style="background-color: #FFA500;">Laranja</option>
+                    <option value="#800080" style="background-color: #800080; color: white;">Roxo</option>
+                </select>
+                
+                <label class="form-label" for="textoCabecalho">Texto do Cabeçalho</label>
+                <input type="text" id="textoCabecalho" class="form-control mb-2">
+
+                <label for="corFonte" class="form-label">Cor da Fonte</label>
+                <select id="corFonte" name="corFonte" class="form-select">
+                    <option>--</option>
+                    <option value="#FF0000" style="background-color: #FF0000; color: white;">Vermelho</option>
+                    <option value="#00FF00" style="background-color: #00FF00;">Verde</option>
+                    <option value="#0000FF" style="background-color: #0000FF; color: white;">Azul</option>
+                    <option value="#FFFF00" style="background-color: #FFFF00;">Amarelo</option>
+                    <option value="#FFA500" style="background-color: #FFA500;">Laranja</option>
+                    <option value="#800080" style="background-color: #800080; color: white;">Roxo</option>
+                </select>
+        
+                <label class="form-label" for="tamFonte">Tamanho da Fonte</label>
+                <select id="tamFonte" class="form-select">
+                    <option>--</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                </select>
+
+                <label class="form-label">Transformação do texto</label>
+                <select id="textoTransformacao" class="form-select mb-2">
+                    <option value="none">Normal</option>
+                    <option value="uppercase">Caixa Alta</option>
+                </select>
+
+                <label class="form-label">Borda do Cabeçalho</label>
+                <select id="bordaCabecalho" class="form-select mb-2">
+                    <option value="none">Sem borda</option>
+                    <option value="solid">Com borda</option>
+                </select>
+               
+                <label class="form-label">Fonte do Cabeçalho</label>
+                <select id="fonteCabecalho" class="form-select mb-2">
+                    <option value="Arial">Arial</option>
+                    <option value="'Courier New', Courier, monospace">Courier</option>
+                    <option value="Georgia">Georgia</option>
+                </select>
+
+            </div>
+
+            <div class="section border rounded">
+                <h2>Links</h2>
+              
+                <label>
+                    <input class="form-check-input" type="checkbox" id="noLinks" onclick="removeLinks(this)">
+                    Remover links
+                    
+                </label>
+               
+                <div id="areaLinks">
+                    <div id="blocosLinks">
+                        <div class="mb-2 d-flex gap-2 flex-wrap align-items-center">
+                            <input type="text" name="links" placeholder="Texto do link" class="form-control w-auto">
+                            <input type="file" name="href" class="form-control w-auto">
+                        </div>
+                    </div>
+                    <button type="button" onclick="criarLinks()" class="btn btn-secondary btn-sm mb-2">+</button>
+                    <br>
+                    <label for="corLinks" class="form-label">Cor do Link</label>
+                    <select name="corLinks" id="corLinks" class="form-select">
+                        <option>--</option>
+                        <option value="#FF0000" style="background-color: #FF0000; color: white;">Vermelho</option>
+                        <option value="#00FF00" style="background-color: #00FF00;">Verde</option>
+                        <option value="#0000FF" style="background-color: #0000FF; color: white;">Azul</option>
+                        <option value="#FFFF00" style="background-color: #FFFF00;">Amarelo</option>
+                        <option value="#FFA500" style="background-color: #FFA500;">Laranja</option>
+                        <option value="#800080" style="background-color: #800080; color: white;">Roxo</option>
+                    </select>
+                    <br>
+                    <label class="form-label">Estilo</label><br>
+                    <div class="form-check form-check-inline">          
+                        <input type="radio" name="estiloLinks" value="1"> Sublinhado                 
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="estiloLinks" value="0"> Não Sublinhado
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+      
+            <div class="section border mb-2 rounded">
+                <h2>Conteúdo</h2>
+                <textarea id="txtConteudo" class="form-control mb-2" rows="4"></textarea>
+
+                <h2>Imagem</h2>
+                <input type="text" id="img" class="form-control mb-2" placeholder="URL da imagem">
+                <button onclick="gerarCodigo()" class="btn btn-custom">Gerar Código</button>
+            </div>
+
+          
+            <div class="section border rounded">
+                <h2>HTML Gerado</h2>
+                <textarea id="codeHTML" class="form-control mb-2"></textarea>
+                <button onclick="download('codeHTML','')" class="btn btn-custom2">Download HTML</button>
+
+                <h2 class="mt-2">CSS Gerado</h2>
+                <textarea id="codeCSS" class="form-control mb-2"></textarea>
+                <button onclick="download('codeCSS','estilo.css')" class="btn btn-custom2">Download CSS</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
